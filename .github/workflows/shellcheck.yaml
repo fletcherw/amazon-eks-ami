@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - '**.sh'
+
+name: "Shellcheck"
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          severity: error
+          ignore_paths: nodeadm/vendor

@@ -136,7 +136,7 @@ if ! [[ ${ISOLATED_REGIONS} =~ $BINARY_BUCKET_REGION ]]; then
     --retry 10 \
     --retry-delay 1 \
     -L "https://awscli.amazonaws.com/awscli-exe-linux-${MACHINE}.zip" -o "${AWSCLI_DIR}/awscliv2.zip"
-  unzip -q "${AWSCLI_DIR}/awscliv2.zip" -d ${AWSCLI_DIR}
+  unzip -q "${AWSCLI_DIR}/awscliv2.zip" -d "${AWSCLI_DIR}"
   sudo "${AWSCLI_DIR}/aws/install" --bin-dir /bin/ --update
 else
   echo "Installing awscli package"
